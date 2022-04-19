@@ -10,7 +10,12 @@
 5. [Wireframe](https://github.com/neshmasood/social-network/#wireframes)
 
 
+
 ## Project Description
+
+This is a social network site for immigrants and the community they have become part of after moving.  We want to provide a safe and resourceful platform for our users to use. The members of the community are able to provide assistance (teaching a language, setting up events, financial assistance, guidance and more).
+
+
 
 ## Technologies Used
 
@@ -26,23 +31,21 @@
 ## User Story
 
 **Landing Page:**
-
-As a User (AAU), I want to have a clear understanding what this website is about.
-AAU, I want to be able to create an account.
-AAU, I want to be able to login using my credentials or Google login to an existing account.
-AAU, I want to be able to see other members' posts.
+* As a User (AAU), I want to have a clear understanding what this website is about. 
+* AAU, I want to be able to create an account. 
+* AAU, I want to be able to login using my credentials or Google login to an existing account. 
+* AAU, I want to be able to see other members' posts. 
 
 **Create an Account Page:**
-
-AAU, I want to be able to register for an account using my first name, last name, email address, username, and password.
+* AAU, I want to be able to register for an account using my first name, last name, email address, username, and password. 
+* AAU, I want to login to my account after registering.
 
 **User Dashboard Page:**
-
-AAU, I want to see the list of my posts.
-AAU, I want to be able to create a new post.
-AAU, I want to be able to edit and delete my posts.
-AAU, I want to be able to see the comments made on my post.
-AAU, I want to be able to edit my account credentials.
+* AAU, I want to see the list of my posts. 
+* AAU, I want to be able to create a new post. 
+* AAU, I want to be able to edit and delete my posts. 
+* AAU, I want to be able to see the comments made on my post. 
+* AAU, I want to be able to edit my account credentials. 
 
 
 ## ERD
