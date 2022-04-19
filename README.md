@@ -3,12 +3,11 @@
 
 ## Table of Contents
 
-[Project Desription](https://github.com/neshmasood/social-network/#project-description)
-[Technologies Used](https://github.com/neshmasood/social-network/#technologies-used)
-[User Story](https://github.com/neshmasood/social-network/#user-story)
-[Data ERD](https://github.com/neshmasood/social-network/#erd)
-[Wireframe](https://github.com/neshmasood/social-network/#wireframes)
-
+1. [Project Description](https://github.com/neshmasood/social-network/#project-description)
+2. [Technologies Used](https://github.com/neshmasood/social-network/#technologies-used)
+3. [User Story](https://github.com/neshmasood/social-network/#user-story)
+4. [Data ERD](https://github.com/neshmasood/social-network/#erd)
+5. [Wireframe](https://github.com/neshmasood/social-network/#wireframes)
 
 
 ## Project Description
@@ -25,6 +24,25 @@
 
 
 ## User Story
+
+**Landing Page:**
+
+As a User (AAU), I want to have a clear understanding what this website is about.
+AAU, I want to be able to create an account.
+AAU, I want to be able to login using my credentials or Google login to an existing account.
+AAU, I want to be able to see other members' posts.
+
+**Create an Account Page:**
+
+AAU, I want to be able to register for an account using my first name, last name, email address, username, and password.
+
+**User Dashboard Page:**
+
+AAU, I want to see the list of my posts.
+AAU, I want to be able to create a new post.
+AAU, I want to be able to edit and delete my posts.
+AAU, I want to be able to see the comments made on my post.
+AAU, I want to be able to edit my account credentials.
 
 
 ## ERD
