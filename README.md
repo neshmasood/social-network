@@ -14,13 +14,13 @@
 
 ## Technologies Used
 
-* [Python]: Version 3.9
-* [Django]
-* [Heroku] - Deployment
-* [PostgreSQL] - Database
-* [Miro] - Planning
-* [Draw.io]
-* [Google-auth]
+* Python: Version 3.9
+* Django
+* Heroku - Deployment
+* PostgreSQL - Database
+* Miro - Planning
+* Draw.io
+* Google-auth
 
 
 ## User Story
