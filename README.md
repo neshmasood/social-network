@@ -1,21 +1,21 @@
 # Social Network for Immigrants
 
 
-# Table of Contents
+## Table of Contents
 
-# Project Description
+## Project Description
 
-# Technologies Used
-
-
-
-# User Stories
+## Technologies Used
 
 
-# ERD
 
-# Wireframes
+## User Stories
 
 
-# Deployment
+## ERD
+
+## Wireframes
+
+
+## Deployment
 
