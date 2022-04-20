@@ -57,20 +57,8 @@ This is a social network site for immigrants and the community they have become 
 
 ![Screen Shot 2022-04-19 at 9 31 39 PM](https://user-images.githubusercontent.com/92559697/164135328-544599c5-f82e-4672-9d46-1f6019227a3c.png)
 ![Screen Shot 2022-04-19 at 9 38 53 PM](https://user-images.githubusercontent.com/92559697/164136018-f8b862a1-a172-421a-9425-d8754ee7625e.png)
-![Screen Shot 2022-04-19 at 9 30 59 PM](https://user-images.githubusercontent.com/92559697/164136129-e5a69fbf-a61e-4e37-b3bf-954161c7fec1.png)
-
 ![Screen Shot 2022-04-19 at 9 43 08 PM](https://user-images.githubusercontent.com/92559697/164137321-47529989-8260-41e0-ac1a-6c6cf76eb3fa.png)
-
 ![Screen Shot 2022-04-19 at 9 43 28 PM](https://user-images.githubusercontent.com/92559697/164137404-1044358b-a05e-4da1-9758-2b46aef8b4a0.png)
-
-
-![Screen Shot 2022-04-19 at 9 30 36 PM](https://user-images.githubusercontent.com/92559697/164135395-1201fa1f-4749-4443-91f8-3bf9b9c286bf.png)
-
-![Screen Shot 2022-04-19 at 9 31 39 PM](https://user-images.githubusercontent.com/92559697/164135433-82bf0f87-269c-46cb-abd0-6335163b7182.png)
-
-
-
-
 
 
 ## Deployment
