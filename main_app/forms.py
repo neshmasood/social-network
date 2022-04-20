@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
+from .models import Post
 
 
 class SignUpForm(UserCreationForm):
@@ -18,3 +19,18 @@ class SignUpForm(UserCreationForm):
         self.fields['username'].widget.attrs['class'] = 'form-control'
         self.fields['password1'].widget.attrs['class'] = 'form-control'
         self.fields['password2'].widget.attrs['class'] = 'form-control'
+        
+        
+        
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ('title', 'author', 'image', 'body')
+        
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Give a title'}),
+            # 'image': forms.ImageField(attrs={'class': 'form-control'}),
+            'author': forms.Select(attrs={'class': 'form-control'}),
+            'body': forms.Textarea(attrs={'class': 'form-control'}),  
+            
+        }

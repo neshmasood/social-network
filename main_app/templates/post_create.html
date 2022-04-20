@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Create a new Post{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<h1>Add a Post</h1>
+<br/> <br/>
+<div class="">
+
+    <div class="form-group">
+        <form action="" method='POST'>
+            {% csrf_token %}
+            {{form.as_p}}
+
+            <input class="btn btn-primary" type="submit" value="Create" />
+            <a class="btn btn-primary" href="{% url 'home' %}">Cancel</a>
+
+        </form>
+    </div>
+</div>
+
+{% else %}
+    
+You're not allowed here.
+
+{% endif %}
+    
+
+{% endblock %}

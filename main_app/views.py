@@ -5,6 +5,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import SignUpForm
+from django.views.generic import DetailView, CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import Post
 
 # Create your views here.
 
@@ -57,3 +60,23 @@ def signup_view(request):
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
+
+
+
+class PostDetailView(DetailView): 
+    model = Post
+    template_name="post_detail.html"
+    
+
+
+
+class PostCreate(LoginRequiredMixin, CreateView):
+    model = Post
+    fields = ['title', 'author', 'image', 'body']
+    template_name = "post_create.html"
+    success_url = '/'
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.user = self.request.user
+        self.object.save()
+        return HttpResponseRedirect('/posts')
