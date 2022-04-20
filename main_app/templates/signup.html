@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Register{% endblock %}
+
+{% block content%}
+
+{% if errors %}
+<p style="color: red;">{{errors}}</p>
+{% endif %}
+
+<h1> Register</h1>
+<br/> <br/>
+<div class="form-floating">
+
+    <div class="form-group">
+        <form action="" method='POST'>
+            {% csrf_token %}
+            {{form.as_p}}
+
+            <button type="submit" class="btn btn-primary my-5">Register</button>
+
+        </form>
+    </div>
+</div>
+    
+
+
+{% endblock %}
