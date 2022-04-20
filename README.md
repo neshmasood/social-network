@@ -26,6 +26,7 @@ This is a social network site for immigrants and the community they have become 
 * Miro - Planning
 * Draw.io
 * Google-auth
+* Bootstrap CSS
 
 
 ## User Story
