@@ -55,6 +55,9 @@ This is a social network site for immigrants and the community they have become 
 
 ## Wireframes
 
+![Screen Shot 2022-04-19 at 9 48 23 PM](https://user-images.githubusercontent.com/92559697/164140047-74c9044f-3796-46d3-b4cd-e019c957fe81.png)
+![Screen Shot 2022-04-19 at 9 47 51 PM](https://user-images.githubusercontent.com/92559697/164140142-fbedb925-d137-458a-a670-4d286e285dfb.png)
+
 ![Screen Shot 2022-04-19 at 9 31 39 PM](https://user-images.githubusercontent.com/92559697/164135328-544599c5-f82e-4672-9d46-1f6019227a3c.png)
 ![Screen Shot 2022-04-19 at 9 38 53 PM](https://user-images.githubusercontent.com/92559697/164136018-f8b862a1-a172-421a-9425-d8754ee7625e.png)
 ![Screen Shot 2022-04-19 at 9 43 08 PM](https://user-images.githubusercontent.com/92559697/164137321-47529989-8260-41e0-ac1a-6c6cf76eb3fa.png)
