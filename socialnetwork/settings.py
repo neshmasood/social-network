@@ -26,6 +26,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = str(os.getenv('SECRET_KEY'))
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = str(os.getenv('GOOGLE_KEY'))
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = str(os.getenv('GOOGLE_SECRET'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -42,6 +44,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'social_django',
+    # 'django_extentions',
+    
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
     
     #Apps
     'main_app',
@@ -135,6 +145,33 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = '/login/'
+# LOGOUT_URL = 'logout'
 
-# LOGIN_REDIRECT_URL= 'home'
-# LOGOUT_REDIRECT_URL= 'home'
+LOGIN_REDIRECT_URL= 'home'
+LOGOUT_REDIRECT_URL= 'home'
+
+
+AUTHENTICATION_BACKENDS=['social_core.backends.google.GoogleOAuth2',
+                     'django.contrib.auth.backends.ModelBackend',
+                     'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
+    
+
+# if you have an application deployed, you should specify the path of the dot env on the settings file like so:
+
+# import os
+# from dotenv import load_dotenv
+# dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+# load_dotenv(dotenv_path)
