@@ -29,6 +29,10 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = str(os.getenv('GOOGLE_KEY'))
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = str(os.getenv('GOOGLE_SECRET'))
 
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY') 
+STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY') 
+
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -53,8 +57,11 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     
+    
+    'payments.apps.PaymentsConfig',
     #Apps
     'main_app',
+    # 'payments',
     
     
 ]
@@ -167,7 +174,12 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
-    
+
+
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY') 
+STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY') 
+# STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY') 
+# STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')   
 
 # if you have an application deployed, you should specify the path of the dot env on the settings file like so:
 
