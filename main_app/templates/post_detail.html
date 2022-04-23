@@ -21,7 +21,7 @@
 {% if not post.comments.all %}
     <a href="{% url 'comment_add' post.pk %}">Add a comment</a>
 {% else %}
-<a href="#">Add a comment</a>
+<a href="{% url 'comment_add' post.pk %}">Add a comment</a>
 <br/><br/>
     {% for comment in post.comments.all %}
 
