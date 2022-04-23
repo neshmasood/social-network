@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic.base import TemplateView
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
@@ -8,7 +8,7 @@ from .forms import SignUpForm
 from django.views.generic import DetailView, CreateView, DeleteView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Post, Comment
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from .forms import PostForm, EditForm, CommentForm
 
 
@@ -70,6 +70,16 @@ class PostDetailView(DetailView):
     model = Post
     template_name="post_detail.html"
     
+    def get_context_data(self, *args, **kwargs):
+        context = super(PostDetailView, self).get_context_data(*args, **kwargs)
+        # this will look up id of the post we would be on at that time.
+        stuff = get_object_or_404(Post, id=self.kwargs['pk']) 
+        total_likes = stuff.total_likes()
+        context["total_likes"] = total_likes
+        return context
+        
+    
+    
     
     
 class PostList(TemplateView):
@@ -128,3 +138,9 @@ class AddCommentView(CreateView):
         form.instance.post_id = self.kwargs['pk']
         return super().form_valid(form)
     success_url = '/posts'
+    
+    
+def LikeView(request, pk):
+    post = get_object_or_404(Post, id=request.POST.get('post_id'))
+    post.likes.add(request.user)
+    return HttpResponseRedirect(reverse('post_detail', args=[str(pk)]))
