@@ -7,7 +7,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from .forms import SignUpForm
 from django.views.generic import DetailView, CreateView, DeleteView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Post
+from .models import Post, Comment
 from django.urls import reverse_lazy
 from .forms import PostForm, EditForm
 
@@ -114,3 +114,12 @@ class DeletePostView(DeleteView):
     template_name = "post_delete.html"
     # success_url = reverse_lazy('/posts')
     success_url = "/posts"
+    
+    
+    
+class AddCommentView(CreateView):
+    model = Comment
+    # fields = ['name', 'body']
+    fields = '__all__'
+    template_name = "comment_add.html"
+    success_url = '/posts'
