@@ -58,10 +58,10 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     
     
-    'payments.apps.PaymentsConfig',
+    # 'payments.apps.PaymentsConfig',
     #Apps
     'main_app',
-    # 'payments',
+    'payments',
     
     
 ]

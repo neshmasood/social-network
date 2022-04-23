@@ -1,9 +1,20 @@
 
-{% block title %}Register{% endblock %}
 
-{% block content%}
 <h1>
     Please, donate here
 </h1>
 
-{% endblock %}
+ <form action="" method="POST">
+    {% csrf_token %}
+    <button type="submit" id="checkout-button">Checkout</button>
+    <script src="https://checkout.stripe.com/checkout.js" class=" stripe-button"
+        data-key="{{ key }}"
+        data-description = "A donation payment"
+        data-amount="1000"
+        currency = 'usd'>
+    </script>
+</form>
+
+    
+
+

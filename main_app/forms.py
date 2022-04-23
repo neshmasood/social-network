@@ -34,3 +34,17 @@ class PostForm(forms.ModelForm):
             'body': forms.Textarea(attrs={'class': 'form-control'}),  
             
         }
+        
+        
+           
+class EditForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ('title', 'image', 'body')
+        
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'image': forms.TextInput(attrs={'class': 'form-control'}),
+            'body': forms.Textarea(attrs={'class': 'form-control'}),  
+            
+        }
