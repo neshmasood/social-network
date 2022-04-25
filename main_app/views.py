@@ -73,13 +73,15 @@ class PostDetailView(DetailView):
     def get_context_data(self, *args, **kwargs):
         context = super(PostDetailView, self).get_context_data(*args, **kwargs)
         # this will look up id of the post we would be on at that time.
-        stuff = get_object_or_404(Post, id=self.kwargs['pk']) 
-        total_likes = stuff.total_likes()
+        post_likes = get_object_or_404(Post, id=self.kwargs['pk']) 
+        total_likes = post_likes.total_likes()
+        liked = False
+        if post_likes.likes.filter(id=self.request.user.id).exists():
+            liked = True
+        context["liked"] = liked
         context["total_likes"] = total_likes
         return context
         
-    
-    
     
     
 class PostList(TemplateView):
@@ -142,5 +144,11 @@ class AddCommentView(CreateView):
     
 def LikeView(request, pk):
     post = get_object_or_404(Post, id=request.POST.get('post_id'))
-    post.likes.add(request.user)
+    liked = False
+    if post.likes.filter(id=request.user.id).exists():
+        post.likes.remove(request.user)
+        liked = False
+    else:
+        post.likes.add(request.user)
+        liked = True
     return HttpResponseRedirect(reverse('post_detail', args=[str(pk)]))
