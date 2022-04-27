@@ -6,6 +6,8 @@ from django.conf import settings
 from django.views import View
 import stripe
 from main_app.models import Price, Product
+from django.shortcuts import get_object_or_404
+from django.contrib.auth.models import User
 
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -15,12 +17,16 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 class CreateCheckoutSessionView(View):
     
     def post(self, request, *args, **kwargs):
+        # stripe.api_key = settings.STRIPE_SECRET_KEY
+        product = Product.objects.get('pk')
         price = Price.objects.get(id=self.kwargs['pk'])
         checkout_session = stripe.checkout.Session.create(
             payment_method_types=['card'],
+            customer_email = User.email['email'],
             line_items=[
                 {
                     'price': price.stripe_price_id,
+                    'currency': 'usd',
                     'quantity': 1,
                 },
             ],
