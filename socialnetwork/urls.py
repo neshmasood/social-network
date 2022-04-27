@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+# from payments.views import CreateCheckoutSessionView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main_app.urls')),
-    path('social-auth/',include('social_django.urls', namespace='social')),
+    path('social-auth/', include('social_django.urls', namespace='social')),
     path('payments/', include('payments.urls')),
+    # path('create-checkout-session/', CreateCheckoutSessionView.as_view(), name='create-checkout-session')
     
 ]
