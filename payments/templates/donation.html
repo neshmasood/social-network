@@ -1,14 +1,57 @@
-<div class="container">
-  <h1>
-    Please, donate here
-  </h1>
-</div>
+{% extends 'base.html' %}
+
+
+{% block content%}
+
 
 <div class="container">
+  <div class="row " style="margin: 5rem;">
+    <div class="col-sm-6">
+      <div class="card border-info mb-3">
+        <div class="card-body text-secondary">
+          <h5 class="card-text">“Our attitude towards immigration reflects our faith in the American ideal. We have always believed it possible for men and women who start at the bottom to rise as far as the talent and energy allow. Neither race nor place of birth should affect their chances.”</h5>
+          <p class="card-text">Senator Robert F. Kennedy</p>
+          <!-- <a href="#" class="btn btn-primary"></a> -->
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card border-info mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Please consider donating to help a family in need.</h5>
+          <p class="card-text">Every dollar counts.</p>
+            <form action="{% url 'success' %}" method="POST">
+              {% csrf_token %}
+            <!-- <button type="submit" id="checkout-button">Checkout</button> -->
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="{{ key }}"
+                  data-description = "A donation payment"
+                  data-amount="1000"
+                  currency = 'usd'>
+              </script>
+            </form>
+          <!-- <a href="#" class="btn btn-primary"></a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+<!-- <div class="container">
   <form action="{% url 'success' %}" method="POST">
     {% csrf_token %}
-    <!-- <button type="submit" id="checkout-button">Checkout</button> -->
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    <button type="submit" id="checkout-button">Checkout</button> --> 
+    <!-- <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
         data-key="{{ key }}"
         data-description = "A donation payment"
         data-amount="1000"
@@ -16,7 +59,7 @@
     </script>
 </form>
 
-</div>
+</div> --> 
 
 
 
