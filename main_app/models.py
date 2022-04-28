@@ -52,3 +52,8 @@ class Price (models.Model):
     
     def get_display_price(self):
         return "{0:.2f}".format(self.price / 100)
+    
+    
+class Customer(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    stripe_id = models.CharField(max_length=250)

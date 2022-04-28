@@ -2,7 +2,7 @@ from django.urls import path
 from django.contrib import admin
 from . import views 
 from .views import PostDetailView, DeletePostView, UpdatePostView, AddCommentView, LikeView
-from payments.views import DonationPageView, SuccessView
+from payments.views import DonationPageView
 
 
 
@@ -23,7 +23,7 @@ urlpatterns = [
     path('', DonationPageView.as_view(), name='donation'),
     # path('charge/', views.Charge, name="charge"),
     # path('cancel/', CancelView.as_view(), name='cancel'),
-    path('success/', SuccessView.as_view(), name='success'),
+    # path('success/', views.success.as_view(), name='success'),
     
     
     
