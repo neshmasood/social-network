@@ -30,16 +30,16 @@ class DonationPageView(TemplateView):
 
 def success(request):
     if request.method == "POST":
-        return redirect("success/")
+        return redirect("success")
     else:
-        return render (request, 'payments/donation.html')
+        return render (request, 'success.html')
     
 @login_required
 def checkout(request):
     if request.method == "POST":
-        return redirect("success/")
+        return redirect("success")
     else:
-        return render (request, 'payments/donation.html')
+        return render (request, 'success.html')
     
     # def SuccessView(request):
     #     return render(request, 'payments/success')

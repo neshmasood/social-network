@@ -21,7 +21,7 @@ from django.utils.decorators import method_decorator
 class HomePage(TemplateView): 
     template_name = 'home.html' 
     
-class DAshboard(TemplateView): 
+class Dashboard(TemplateView): 
     template_name = 'dashboard.html' 
 
 
@@ -187,7 +187,7 @@ def dashboard(request):
     posts = Post.objects.all()
   
     return render (request, 'dashboard.html', {
-         "posts": posts,
+         "posts": posts
         
     })
 

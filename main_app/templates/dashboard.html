@@ -4,8 +4,9 @@
 {% block content %} 
 
 
+
 <div class="header-container">  
-    <h2 class="header">{{ user.first_name }}'s Profile Page</h2>
+    <h2 class="header">{{ user.first_name }}'s Dashboard Page</h2>
 
     {% if user is authenticated %}
         {% if user.id == post.author.id %}

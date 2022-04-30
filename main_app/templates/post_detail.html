@@ -2,9 +2,9 @@
 
 {% block content %}
 
-<div>
+<div class="w-50 border-success justify-content-center mx-auto mt-5">
 
-    <h5>Title: {{post.title}} </h5>
+    <h5>{{post.title}} </h5>
     <!-- <h5>Image: {{post.image}} </h5> -->
     <!-- <h5>Author: {{post.author}} </h5> -->
     <!-- <h5>Body: {{post.body}} </h5> -->
@@ -25,11 +25,15 @@
     
 </div>
 <hr>
-<!-- <h5>Image: {{post.image}} </h5> -->
-<h5>Body: {{post.body|safe}} </h5>
-<br/><br/>
+<div class="">
+    <div class="w-50 border-success justify-content-center mx-auto mt-5" style="width: 18rem;">
+        <h5>{{post.body|safe}} </h5>
+    </div>
 
-<a href="{% url 'post_list' %}" class="btn btn-secondary">Back</a>
+</div>
+<br/>
+
+<!-- <a href="{% url 'post_list' %}" class="btn btn-secondary">Back</a> -->
 <br/>
 <hr>
 

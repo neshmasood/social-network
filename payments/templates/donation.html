@@ -4,6 +4,18 @@
 {% block content%}
 
 
+<div class="card border-success mb-3" style="margin: 5rem;">
+  <div class="card-header">
+    Quote
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p>“Our attitude towards immigration reflects our faith in the American ideal. We have always believed it possible for men and women who start at the bottom to rise as far as the talent and energy allow. Neither race nor place of birth should affect their chances.”</p>
+      <footer class="blockquote-footer">Senator Robert F. Kennedy <cite title="Source Title"></cite></footer>
+    </blockquote>
+  </div>
+</div>
+
 <div class="container">
   <div class="row " style="margin: 5rem;">
     <div class="col-sm-6">
@@ -27,6 +39,44 @@
                   data-key="{{ key }}"
                   data-description = "A donation payment"
                   data-amount="1000"
+                  currency = 'usd'>
+              </script>
+            </form>
+          <!-- <a href="#" class="btn btn-primary"></a> -->
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card border-info mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Please consider donating to help a family in need.</h5>
+          <p class="card-text">Every dollar counts.</p>
+            <form action="{% url 'success' %}" method="POST">
+              {% csrf_token %}
+            <!-- <button type="submit" id="checkout-button">Checkout</button> -->
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="{{ key }}"
+                  data-description = "A donation payment"
+                  data-amount="5000"
+                  currency = 'usd'>
+              </script>
+            </form>
+          <!-- <a href="#" class="btn btn-primary"></a> -->
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card border-info mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Please consider donating to help a family in need.</h5>
+          <p class="card-text">Every dollar counts.</p>
+            <form action="{% url 'success' %}" method="POST">
+              {% csrf_token %}
+            <!-- <button type="submit" id="checkout-button">Checkout</button> -->
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="{{ key }}"
+                  data-description = "A donation payment"
+                  data-amount="10000"
                   currency = 'usd'>
               </script>
             </form>

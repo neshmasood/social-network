@@ -60,11 +60,13 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     
     
-    'payments.apps.PaymentsConfig',
+    # 'payments.apps.PaymentsConfig',
     #Apps
     'main_app',
-    # 'payments',
+    'payments',
     # 'members',
+    'django_bootstrap_icons',
+    'bootstrap_modal_forms',
     
     
 ]

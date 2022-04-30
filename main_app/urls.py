@@ -3,9 +3,7 @@ from django.urls import path
 from . import views 
 from .views import PostDetailView, DeletePostView, UpdatePostView, AddCommentView, LikeView, UpdateProfileView
 from payments.views import DonationPageView
-
 from main_app.views import dashboard
-
 
 
 
@@ -33,8 +31,6 @@ urlpatterns = [
     # path('user/<int:pk>/', ShowProfilePageView.as_view(), name = 'profile'),
     # path('profile/create/', views.CreateProfilePageView.as_view(), name = 'create_profile'),
     path('dashboard/', dashboard, name="dashboard"),
-    
-    
-    
+     
             
 ]
