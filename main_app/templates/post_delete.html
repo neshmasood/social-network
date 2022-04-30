@@ -2,6 +2,11 @@
 
 {% block content %}
 
+
+{% if user.is_authenticated %}
+
+    {% if user.id == post.author.id %}
+
     <h4>Delete a post.</h4>
     <p>Are you sure you want to delete "{{post.title}}"?</p>
     <form method="post">
@@ -9,6 +14,16 @@
         <input type="submit" value="Yes"/>
         <a href="{% url 'post_detail' post.pk %}">Cancel</a>
     </form>
+
+    {% else%}
+    You're not allowed here.
+{% endif %}
+
+{% else %}
+
+You're not allowed here.
+
+{% endif %}
 
 
 {% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %} 
+
+
+{% block content %} 
+
+
+<div class="header-container">  
+    <h2 class="header">{{ user.first_name }}'s Profile Page</h2>
+
+    {% if user is authenticated %}
+        {% if user.id == post.author.id %}
+    <a href="{% url 'update_profile' user.pk %}"> <button class="btn btn-primary" >Edit Profile</button> </a>
+  
+        {% endif %}
+    {% endif %}
+</div>
+
+<div class="card-body">
+
+    {% if user is authenticated %}
+        {% if user.id == post.author.id %}
+        <div class="container-fluid">
+            <div class="card">
+                <h6>List of Posts</h6>
+                {% for post in posts %}
+                <h6>{{post.title}} </h6>
+                <h6>Author: {{post.author}} </h6>
+                <h6>body: {{post.body}} </h6>
+                <h6>post-date: {{post.post_date}} </h6>
+
+                {% endfor%}
+            </div>
+
+        </div>
+        {% endif %}
+        {% else %}
+        <p> YOu currently have no posts</p>
+    {% endif %}
+
+
+            <!-- <a href="{% url 'update_profile' user.id %}"> <button class="btn btn-primary" >Edit Profile</button> </a> -->
+            <a href="{% url 'post_create' %}"><button class="btn btn secondary" >Add Post</button></a>
+          
+  
+
+{% endblock %}

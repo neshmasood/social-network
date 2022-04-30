@@ -22,6 +22,8 @@ urlpatterns = [
     path('', include('main_app.urls')),
     path('social-auth/', include('social_django.urls', namespace='social')),
     path('payments/', include('payments.urls')),
+    # path('members/', include('django.contrib.auth.urls')),
+    # path('members/', include('members.urls')),
     # path('create-checkout-session/', CreateCheckoutSessionView.as_view(), name='create-checkout-session')
     
 ]

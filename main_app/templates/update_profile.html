@@ -1,0 +1,23 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="">
+        <h3>Edit your Profile Page</h3>
+        <a href="{% url 'update_profile' user.pk %}"></a>
+    </div>
+
+    <div class="">
+        <form class="" method="POST" >
+            {% csrf_token %}
+            {{form.as_p}}
+            <button class="btn btn-primary" type="submit">Update</button>
+             <!-- <input type="submit" value="Submit" />  -->
+           <a class="form-cancel" href="{% url 'post_list' %}">Cancel</a>
+        </form>
+    </div>
+
+{% endblock %}  
+
+

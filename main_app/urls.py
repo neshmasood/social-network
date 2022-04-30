@@ -1,8 +1,11 @@
 from django.urls import path
-from django.contrib import admin
+# from django.contrib import admin
 from . import views 
-from .views import PostDetailView, DeletePostView, UpdatePostView, AddCommentView, LikeView
+from .views import PostDetailView, DeletePostView, UpdatePostView, AddCommentView, LikeView, UpdateProfileView
 from payments.views import DonationPageView
+
+from main_app.views import dashboard
+
 
 
 
@@ -24,6 +27,12 @@ urlpatterns = [
     # path('charge/', views.Charge, name="charge"),
     # path('cancel/', CancelView.as_view(), name='cancel'),
     # path('success/', views.success.as_view(), name='success'),
+    path('user/<username>/', views.profile, name='profile'),
+    # path('user/<username>/', ProfileView, name='profile'),
+    path('profile/update/<int:pk>/', UpdateProfileView.as_view(), name='update_profile'),
+    # path('user/<int:pk>/', ShowProfilePageView.as_view(), name = 'profile'),
+    # path('profile/create/', views.CreateProfilePageView.as_view(), name = 'create_profile'),
+    path('dashboard/', dashboard, name="dashboard"),
     
     
     

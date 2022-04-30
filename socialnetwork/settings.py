@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     #Apps
     'main_app',
     # 'payments',
+    # 'members',
     
     
 ]

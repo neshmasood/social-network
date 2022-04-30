@@ -9,13 +9,20 @@ from django.views.generic import DetailView, CreateView, DeleteView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Post, Comment
 from django.urls import reverse_lazy, reverse
-from .forms import PostForm, EditForm, CommentForm
+from .forms import PostForm, EditForm, CommentForm, UserChangeForm
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+# from django.contrib.auth import get_user_model
+# from django.views import generic 
 
 
 # Create your views here.
 
 class HomePage(TemplateView): 
     template_name = 'home.html' 
+    
+class DAshboard(TemplateView): 
+    template_name = 'dashboard.html' 
 
 
 # django auth
@@ -104,7 +111,9 @@ class PostList(TemplateView):
 
 class PostCreate(LoginRequiredMixin, CreateView):
     model = Post
-    fields = ['title', 'author', 'image', 'body']
+    # form_class = PostForm
+    fields = ['title', 'author', 'body']
+    #take out image from post form
     template_name = "post_create.html"
     success_url = '/posts'
     def form_valid(self, form):
@@ -152,3 +161,90 @@ def LikeView(request, pk):
         post.likes.add(request.user)
         liked = True
     return HttpResponseRedirect(reverse('post_detail', args=[str(pk)]))
+
+
+
+
+
+
+def profile(request, username):
+    user = User.objects.get(username=username)
+    posts = Post.objects.filter(user=user)
+    return render(request, 'profile.html', {'username': username, 'posts': posts})
+
+
+# @login_required
+
+# def ProfileView(request, username):
+#     user = User.objects.get(username = username)
+#     posts = Post.objects.filter(user=user)
+    
+#     return render(request, "profile.html", {"username": username, 'posts': posts})
+
+@login_required
+def dashboard(request):
+    # user = User.objects.get(username = username)
+    posts = Post.objects.all()
+  
+    return render (request, 'dashboard.html', {
+         "posts": posts,
+        
+    })
+
+
+# @login_required
+# class ProfileView(DetailView):
+#     # model = Profile
+#     template_name = "profile.html"
+
+#     def get_context_data(self, *args, **kwargs):
+#         user = User.objects.get(username = username)
+#         context = super(ProfileView, self).get_context_data(*args, **kwargs)
+#         posts = Post.objects.filter(user=user)
+#         context['posts'] = posts
+
+#         return context
+
+
+
+# @method_decorator(login_required, name = 'dispatch')
+# class CreateProfilePageView(LoginRequiredMixin, CreateView):
+#     model = Profile
+#     form_class = ProfilePageForm
+#     template_name = 'create_profile.html'
+#     # fields = ['bio',]
+#     success_url = reverse_lazy('home')
+    
+    
+#     def form_valid(self, form):
+#         form.instance.user=self.request.user 
+#         # return super().form_valid(form)
+#         return super(CreateProfilePageView, self).form_valid(form)
+#     success_url = '/'
+   
+    
+
+# class ShowProfilePageView(DetailView):
+#     model = User
+#     template_name = 'profile.html'
+
+#     def get_context_data(self, *args, **kwargs):
+#         context = super(ShowProfilePageView, self).get_context_data(*args, **kwargs)
+#         user_page = get_object_or_404(User, id = self.kwargs['pk'])
+#         context["user_page"] = user_page
+#         return context
+
+
+@method_decorator(login_required, name='dispatch')
+class UpdateProfileView(UpdateView):
+    model = User
+    form_class = UserChangeForm
+    template_name = 'update_profile.html'
+    success_url = '/home'
+
+    def get_object(self):
+        return self.request.user
+
+   
+    
+    

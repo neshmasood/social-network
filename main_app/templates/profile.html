@@ -1,0 +1,109 @@
+{% extends 'base.html' %} 
+
+
+{% block content %} 
+
+
+<div class="header-container">  
+    <h2 class="header">{{ user.first_name }}'s Profile Page</h2>
+
+    {% if user is authenticated %}
+        {% if user.id == post.author.id %}
+    <a href="{% url 'update_profile' user.id %}"> <button class="btn btn-primary" >Edit Profile</button> </a>
+  
+        {% endif %}
+    {% endif %}
+</div>
+
+<div class="card-body">
+  
+</div>
+<div class="container-fluid">
+    <div class="card">
+        <h6>List of Posts</h6>
+        {% for post in posts %}
+        <h6>{{post.title}} </h6>
+        <h6>Author: {{post.author}} </h6>
+        <h6>body: {{post.body}} </h6>
+        <h6>post-date: {{post.post_date}} </h6>
+        
+        <!-- <p>Created by:
+            <a href="/user/{{ post.user.username }}">{{ post.user.username }}</a>
+        </p> --> 
+        
+        {% endfor %}
+
+        {% if user.is_authenticated %}
+            {% if user.id == post.author.id %}
+            <a class="edit-profile" href="{% url 'update_profile' user.pk %}">
+                <span>Edit Profile</span>
+            </a>
+            {% endif %}
+        {% endif %}
+
+    </div>
+</div>
+
+
+
+<!-- <div class="">
+
+    <div class="">
+        <div class="header-container">  
+            <h2 class="header">{{ user.first_name }}'s Profile</h2>
+
+            {% if user is authenticated and user.id == post.author.id %}
+            <!-- <a href="{% url 'update_profile' user.id %}"> <button class="btn btn-primary" >Edit Profile</button> </a> -->
+            <!-- <a href="{% url 'post_create' %}"><button class="btn btn secondary" >Add Post</button></a> -->
+<!--           
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="">
+        <div>
+            <div class="">
+                <h2 class="sub-header">Current Posts</h2>
+                {% for post in posts %}
+             
+                    <a href="{% url 'post_detail' post.pk %}" class="">{{ post.title }}</a>
+               
+              
+                {% endfor %}
+                <a href="{% url 'post_create' %}"><button class="btn btn secondary" >Add Post</button></a>
+            </div>
+            
+        </div> --> -->
+<!--   
+        <div class="profile-bio">
+            {% if user.bio %}
+                <h4 class="">Bio</h4>
+                <p class="bio">{{ user.bio }}</p>
+                {% endif %}
+        </div> -->
+
+    </div>
+    
+    
+
+    
+
+
+
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

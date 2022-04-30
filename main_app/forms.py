@@ -21,6 +21,15 @@ class SignUpForm(UserCreationForm):
         self.fields['password2'].widget.attrs['class'] = 'form-control'
         
         
+
+class UserChangeForm(UserCreationForm):
+    
+    class Meta:
+        model = User
+        fields = ['username', 'first_name', 'last_name', 'email']
+        
+        
+   
         
 class PostForm(forms.ModelForm):
     class Meta:
@@ -60,3 +69,17 @@ class CommentForm(forms.ModelForm):
             'body': forms.Textarea(attrs={'class': 'form-control'}),  
             
         }
+        
+        
+        
+# class ProfilePageForm(forms.ModelForm):
+#     class Meta:
+#         model = Profile
+#         fields = ('bio',)
+#     	# fields = ('bio')
+#         widgets = {
+#             'bio': forms.TextInput(attrs={'class': 'form-control'}),
+             
+            
+#         }
+	   
