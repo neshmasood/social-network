@@ -145,12 +145,33 @@ class AddCommentView(CreateView):
     form_class = CommentForm
     template_name = "comment_add.html"
     
+    
+    # def form_valid(self, form):
+    #     self.object = form.save(commit=False)
+    #     self.object.user = self.request.user
+    #     self.object.save()
+    #     return HttpResponseRedirect('/posts')
+    
     def form_valid(self, form):
         form.instance.post_id = self.kwargs['pk']
+        # form.instance.user = self.request.user
+        self.object.user = self.request.user
+        self.object.save()
+        
         return super().form_valid(form)
     success_url = '/posts'
     
     
+    
+    # def form_valid(self, form):
+    #     self.object = form.save(commit=False)
+    #     self.object.user = self.request.user
+    #     self.object.post_id = self.kwargs['pk']
+    #     self.object.save()
+    #     return HttpResponseRedirect('/posts')
+    
+    
+
 def LikeView(request, pk):
     post = get_object_or_404(Post, id=request.POST.get('post_id'))
     liked = False
@@ -166,11 +187,11 @@ def LikeView(request, pk):
 
 
 
-
+@login_required
 def profile(request, username):
     user = User.objects.get(username=username)
-    posts = Post.objects.filter(user=user)
-    return render(request, 'profile.html', {'username': username, 'posts': posts})
+    posts = Post.objects.filter(author__username=username)
+    return render(request, 'profile.html', {'user': user, 'posts': posts})
 
 
 # @login_required

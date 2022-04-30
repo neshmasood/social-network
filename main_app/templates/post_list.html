@@ -31,7 +31,7 @@
     <br/>
   </div>
    <div class="card-footer">
-    <form action="" method="POST">
+    <form action="{% url 'like_post' post.pk %}" method="POST">
         {% csrf_token %}
     
     {% if user.is_authenticated %}
@@ -47,8 +47,18 @@
         - {{ total_likes }} Likes
     
     </form>
-        <!-- <a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>
-        <a href="#" class="card-link"><i class="fa fa-comment"></i> Comment</a> -->
+       <!-- <a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a> -->
+       
+        <a href="{% url 'comment_add' post.pk %}" class="card-link"><i class="fa fa-comment"></i> Comment</a>
+        <!-- <a href="{% url 'comment_add' post.pk %}">Add a Comment</a> -->
+        <!-- <form action="" method='POST'>
+            {% csrf_token %}
+            {{form.as_p}}
+
+            <button class="btn btn-primary">Add a comment</button>
+
+
+        </form> -->
     </div>
 </div>
 <br/>

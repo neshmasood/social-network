@@ -1,22 +1,23 @@
 
+{% extends 'base.html' %}
 
-		<!-- <title>Thanks for your donation!</title> -->
-		<div class="container">
-			<div class="card">
-				<h3>Your donation was successful. Thank you!!!</h3>
 
-			</div>
-			
-		  </div>
-		<!-- <a href="{% url 'donation' %}">Test again</a> -->
+{% block content %}
 
-		<div class="col-sm-6">
-			<div class="card border-info mb-3">
+<div class="col-sm-6 mx-auto ">
+		
+			<div class="card-fade-in" >
 			  <div class="card-body">
-				<h3 class="card-title">Thank you!</h3>
+				<img src="https://images.squarespace-cdn.com/content/v1/59eb668c2278e7603e197248/1528984381371-RYRR0N0V2R93PMRNM30X/thank-you-for-your-donation.png" class="card-img-top" alt="...">
+				<!-- <h3 class="card-title">Thank you!</h3> -->
 				<h5 class="card-text">Your donation was successful.</h5>
-				
 			  </div>
 			</div>
 		  </div>
+</div>
 
+		
+
+		  {% endblock %}
+
+		  

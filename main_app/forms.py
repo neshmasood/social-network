@@ -34,12 +34,12 @@ class UserChangeForm(UserCreationForm):
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title', 'body')
+        fields = ('title', 'author', 'body')
         
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             # 'image': forms.ImageField(attrs={'class': 'form-control'}),
-            # 'author': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id': 'user', 'type': 'hidden'}), 
+            'author': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id': 'user', 'type': 'hidden'}), 
             'body': forms.Textarea(attrs={'class': 'form-control'}),  
             
         }
@@ -62,10 +62,11 @@ class EditForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ('name','body')
+        fields = ('author', 'body',)
         
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'author': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id': 'user'}), 
+            # 'author': forms.TextInput(attrs={'class': 'form-control'}),
             'body': forms.Textarea(attrs={'class': 'form-control'}),  
             
         }

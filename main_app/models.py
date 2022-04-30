@@ -29,12 +29,17 @@ class Post (models.Model):
     
 class Comment(models.Model):
         post = models.ForeignKey(Post, related_name="comments", on_delete=models.CASCADE)
-        name = models.CharField(max_length=255)
+        # name = models.CharField(max_length=255)
+        author = models.ForeignKey(User, on_delete = models.CASCADE)
         body = models.TextField()
         date_added = models.DateTimeField(auto_now_add=True)
         
+        
+        class Meta: 
+            ordering = ('date_added',) 
+        
         def __str__(self):
-            return '%s  - %s' % (self.post.title, self.name)
+            return '%s  - %s' % (self.post.title, self.author)
         
         
 class Product(models.Model):
