@@ -3,21 +3,57 @@
 
 {% block content %}
 
-    <div class="">
+<div class="container">
+<div class="row flex-lg-nowrap">
+  <div class="col">
+    <div class="row">
+      <div class="col mb-3">
         <h3>Edit your Profile Page</h3>
-        <a href="{% url 'update_profile' user.pk %}"></a>
+        <div class="card">
+          <div class="card-body">
+            <div class="edit-profile">
+              <div class="row">
+                <div class="col-12 col-sm-auto mb-3">
+                  <div class="mx-auto" style="width: 140px;">
+                    <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">
+                      <span style="color: rgb(166, 168, 170); font: bold 8pt Arial;">140x140</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
+                  <div class="text-center text-sm-left mb-2 mb-sm-0">
+                    <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">{{user.username}}</h4>
+                    <p class="mb-0">{{user.email}}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-content pt-3">
+                <div class="tab-pane active">
+                    <form class="" method="POST" >
+                        {% csrf_token %}
+                        {{form.as_p}}
+          
+                    <div class="row">
+                      <div class="col d-flex justify-content-end">
+                        <button class="btn btn-primary" type="submit">Save Changes</button>
+                        <a class="form-cancel btn btn-secondary" href="{% url 'post_list' %}">Cancel</a> 
+                      </div>
+                    </div>
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="">
-        <form class="" method="POST" >
-            {% csrf_token %}
-            {{form.as_p}}
-            <button class="btn btn-primary" type="submit">Update</button>
-             <!-- <input type="submit" value="Submit" />  -->
-           <a class="form-cancel" href="{% url 'post_list' %}">Cancel</a>
-        </form>
-    </div>
+  </div>
+</div>
+</div>
 
-{% endblock %}  
+
+{% endblock %} 
 
 

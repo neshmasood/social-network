@@ -1,3 +1,8 @@
 .nav.navbar-nav.navbar-right li a {
     color: blue;
 }
+
+body{
+    margin-top:20px;
+    background:#f8f8f8
+}
