@@ -301,7 +301,7 @@ class UpdateProfileView(UpdateView):
     model = User
     form_class = UserChangeForm
     template_name = 'update_profile.html'
-    success_url = '/home'
+    success_url = 'profile/'
 
     def get_object(self):
         return self.request.user

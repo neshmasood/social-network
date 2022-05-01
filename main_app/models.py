@@ -99,7 +99,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     # stripe_id = models.CharField(max_length=250)
     bio = models.TextField()
-    # profile_pic = models.ImageField('image')
+    profile_pic = models.ImageField(null=True, blank=True, upload_to="images/profile")
     
     def __str__(self):
         return str (self.user)
