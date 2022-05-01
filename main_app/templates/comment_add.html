@@ -9,14 +9,14 @@
 
 <h1>Add a comment</h1>
 <br/> <br/>
-<div class="">
+<div class="container">
 
     <div class="form-group">
         <form action="" method='POST'>
             {% csrf_token %}
             {{form.as_p}}
 
-            <button class="btn btn-primary">Add a comment</button>
+            <button class="btn"style="background-color: #CE7870;">Add a comment</button>
 
 
         </form>
@@ -25,9 +25,15 @@
 
 {% else %}
     
-You're not allowed here.
+Please login to comment on this post.
 
 {% endif %}
     
 
+
+
+
+
+
 {% endblock %}
+

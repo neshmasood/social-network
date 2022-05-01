@@ -35,10 +35,14 @@ class Comment(models.Model):
         
         
         class Meta: 
-            ordering = ('date_added',) 
+            ordering = ('-date_added',) 
         
         def __str__(self):
             return '%s  - %s' % (self.post.title, self.author)
+        
+        
+        # def __str__(self):
+        #     return 'Comment by {}'.format(self.body)
 
 # class Post (models.Model):
 #     title = models.CharField(max_length=255)

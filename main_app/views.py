@@ -89,7 +89,9 @@ class PostDetailView(DetailView):
         context["total_likes"] = total_likes
         return context
         
-    
+
+
+
     
 class PostList(TemplateView):
     template_name = 'post_list.html'

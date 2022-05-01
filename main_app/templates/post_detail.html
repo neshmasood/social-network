@@ -1,88 +1,88 @@
 {% extends 'base.html' %}
+{% load static %}
 
+{% block title %}Post Details{% endblock %}
 {% block content %}
 
-<div class="w-50 border-success justify-content-center mx-auto mt-5">
-
-    <h5>{{post.title}} </h5>
-    <!-- <h5>Image: {{post.image}} </h5> -->
-    <!-- <h5>Author: {{post.author}} </h5> -->
-    <!-- <h5>Body: {{post.body}} </h5> -->
-
-    <small>By: {{post.author.first_name}} - {{post.post_date}}
-
-    {% if user.is_authenticated %}
-        {% if user.id == post.author.id %}
-
-        <a href="{% url 'post_update' post.pk %}">(Edit)</a>
-        <a href="{% url 'post_delete' post.pk %}">(Delete)</a>
-
-        {% endif %}
-
-    {% endif %}
-
-</small><br/>
-    
-</div>
-<hr>
-<div class="">
-    <div class="w-50 border-success justify-content-center mx-auto mt-5" style="width: 18rem;">
-        <h5>{{post.body|safe}} </h5>
+<div class="card mx-auto mt-5 " style="max-width: 80rem;">
+    <div class="card-header" style="color: #6E7D75; background-color: #eaeff0;">
+        <h5>Title: {{post.title}}</h5>
     </div>
+    <div class="card-body">
+      <h3 class="card-text" style="color: #5e987a;" >{{post.body|safe}} </h3>
+     
+    </div>
+    <div class="card-footer text-muted bg-transparent">
+        <small>By: {{post.author.first_name}} - {{post.post_date}}
 
-</div>
-<br/>
-
-<!-- <a href="{% url 'post_list' %}" class="btn btn-secondary">Back</a> -->
-<br/>
-<hr>
-
-<form action="{% url 'like_post' post.pk %}" method="POST">
-    {% csrf_token %}
-
-{% if user.is_authenticated %}
-    {% if liked %}
-        <button type="submit", name="post_id", value="{{ post.id }}", class="btn btn-danger btn-sm">Unlike</button> 
-    {% else %}
-        <button type="submit", name="post_id", value="{{ post.id }}", class="btn btn-primary btn-sm">Like</button> 
-
-    {% endif %}
-{% else %}
-<small><a href="{% url 'login' %}">Login</a> to like this post</small>
-{% endif %}
-    - {{ total_likes }} Likes
-
-</form>
-<br/><br/>
-
-
-<h4>Comments Section</h4>
-<br/>
-
-{% if user.is_authenticated %}
-    {% if not post.comments.all %}
-        <a href="{% url 'comment_add' post.pk %}">Add a Comment</a>
-    {% else %}
-
-        <a href="{% url 'comment_add' post.pk %}">Add a comment</a>
-        <br/><br/>
-        {% for comment in post.comments.all %}
-
-            <strong>
-                {{ comment.name }} 
-                {{ comment.date_added }}
-            </strong>
-            <br/><br/>
-            {{ comment.body }}
-            <br/><br/>
+            {% if user.is_authenticated %}
+                {% if user.id == post.author.id %}
         
-        {% endfor %}    
-    {% endif %}
-{% else %}
-    <small><a href="{% url 'login' %}">Login</a> to comment on this post</small>
-{% endif %}
+                <a href="{% url 'post_update' post.pk %}">(Edit)</a>
+                <a href="{% url 'post_delete' post.pk %}">(Delete)</a>
+        
+                {% endif %}
+        
+            {% endif %}
+        
+        </small>
+    </div>
+  </div>
 
-<hr>
+<div class="card  mx-auto " style="max-width: 80rem;">
+    <div class="card-header text-center" style="color: #6E7D75; background-color: #eaeff0;">
+        <h4>Comments Section</h4>
+    </div>
+    <div class="card-body" style="color: #5e987a;">
+            {% for comment in post.comments.all %}
+    
+                <strong>
+                    {{ comment.author.first_name }} -  
+                    {{ comment.date_added }}
+                </strong>
+                <br/><br/>
+                {{ comment.body }}
+                <br/><br/>
+            
+            {% endfor %}    
+     
+     
+    </div>
+    <div class="card-footer text-muted bg-transparent">
+        <form action="{% url 'like_post' post.pk %}" method="POST">
+            {% csrf_token %}
+        
+        {% if user.is_authenticated %}
+            {% if liked %}
+                <button type="submit", name="post_id", value="{{ post.id }}", class="btn btn-secondary btn-sm">Unlike</button> 
+            {% else %}
+                <button type="submit", name="post_id", value="{{ post.id }}", class="btn btn-primary btn-sm"><i class="fa fa-gittip"></i>Like</button> 
+        
+            {% endif %}
+        {% else %}
+        <small><a href="{% url 'login' %}">Login</a> to like this post</small>
+        {% endif %}
+            - {{ total_likes }} Likes
+        
+        </form>
+        {% if user.is_authenticated %}
+        {% if not post.comments.all %}
+        <a href="{% url 'comment_add' post.pk %}" class="card-link"><i class="fa fa-comment"></i> Comment</a>
+        {% else %}
+        <a href="{% url 'comment_add' post.pk %}" class="card-link"><i class="fa fa-comment"></i> Comment</a>
+       
+        {% endif %}
+    {% else %}
+        <small><a href="{% url 'login' %}">Login</a> to comment on this post</small>
+    {% endif %}
+
+
+
+        </small>
+    </div>
+  </div>
+<br/>
+
 
 
 {% endblock %}

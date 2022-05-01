@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% block title %}Delete a Post{% endblock %}
 {% block content %}
 
 
@@ -11,8 +11,9 @@
     <p>Are you sure you want to delete "{{post.title}}"?</p>
     <form method="post">
         {% csrf_token %}
-        <input type="submit" value="Yes"/>
-        <a href="{% url 'post_detail' post.pk %}">Cancel</a>
+        <!-- <input type="submit" style="background-color: #CE7870;" value="Yes"/> -->
+        <button class="btn" style="background-color: #CE7870;">Yes</button>
+        <a class="btn btn-secondary" href="{% url 'post_detail' post.pk %}">Cancel</a>
     </form>
 
     {% else%}
