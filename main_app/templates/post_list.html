@@ -5,35 +5,51 @@
 {% block content %}
 
 
-<div class="row">
-    <div class="col">
+<div class="container text-center mt-5" style="color: #283d32;"> 
+    <div class="card-fade-in">
         <h5>Posts my members of this website. Please, be kind and respectful to others.</h5>
 
-    </div>
+    </div> 
 
 </div>
 
+
 {% for post in posts %}
 
+<div class="container">
+    <div class="row"></div>
+        <div class="col-sm-9">
 
-<div class="card w-50 border-success justify-content-center mx-auto mt-5" style="width: 18rem;">
+<div class="card w-50 justify-content-center  mx-auto mt-5" style="width: 18rem;">
   <div class="card-header" style="color: #6E7D75; background-color: #eaeff0;" >
     {{post.author}} -
     posted on: {{post.post_date}}
   </div>
   <div class="card-body">
-    <a  href="{% url 'post_detail' post.pk %}">{{post.title}}</a>
+      <h6>{{post.title}}</h6>
+    <a class="btn btn-outline-secondary" style="color: #5c605e; background-color: #eaeff0;" href="{% url 'post_detail' post.pk %}">click here for more details</a>
     <!-- <h5 class="card-title" href="{% url 'post_detail' post.pk %}">{{post.title}}</h5> -->
     <hr>
     <br/>
-    <p class="card-text">{{post.body}}</p>
+    <strong><p class="card-text">{{post.body}}</p></strong>
     <br/>
   </div>
    <div class="card-footer">
 
-        <a href="{% url 'comment_add' post.pk %}" class="card-link"><i class="fa fa-comment"></i> Comment</a>
+        <a class="btn btn-sm" style="color: #2e3531; background-color: #d6a09c;" href="{% url 'comment_add' post.pk %}" class="card-link"><i class="fa fa-comment"></i> Comment</a>
        
     </div>
+</div>
+</div>
+<div class="col-sm-3">
+    <div class="card-fade-in">
+      <div class="card-body">
+       
+      </div>
+    </div>
+  </div>
+
+</div>
 </div>
 <br/>
 

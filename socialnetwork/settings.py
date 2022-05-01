@@ -68,6 +68,8 @@ INSTALLED_APPS = [
     # 'members',
     'django_bootstrap_icons',
     'bootstrap_modal_forms',
+    'bootstrap',
+    'fontawesome',
     
     
 ]

@@ -17,9 +17,12 @@
 
             {% if user.is_authenticated %}
                 {% if user.id == post.author.id %}
-        
-                <a href="{% url 'post_update' post.pk %}">(Edit)</a>
-                <a href="{% url 'post_delete' post.pk %}">(Delete)</a>
+
+                <div class="text-right">
+                    <a class="btn btn-sm" style="background-color: #BECBCF;"  href="{% url 'post_update' post.pk %}">Edit</a>
+                    <a class="btn btn-sm" style="background-color: #BECBCF;" href="{% url 'post_delete' post.pk %}">Delete</a>
+                </div>
+                
         
                 {% endif %}
         
@@ -54,9 +57,9 @@
         
         {% if user.is_authenticated %}
             {% if liked %}
-                <button type="submit", name="post_id", value="{{ post.id }}", class="btn btn-secondary btn-sm">Unlike</button> 
+                <button type="submit", name="post_id", value="{{ post.id }}", class="btn btn-sm" style="color: #2e3531; background-color: #BECBCF;">Unlike</button> 
             {% else %}
-                <button type="submit", name="post_id", value="{{ post.id }}", class="btn btn-primary btn-sm"><i class="fa fa-gittip"></i>Like</button> 
+                <button type="submit", name="post_id", value="{{ post.id }}", class="btn btn-sm" style="color: #2e3531; background-color: #53ba94;"><i class="fa fa-gittip"></i>Like</button> 
         
             {% endif %}
         {% else %}
@@ -67,9 +70,9 @@
         </form>
         {% if user.is_authenticated %}
         {% if not post.comments.all %}
-        <a href="{% url 'comment_add' post.pk %}" class="card-link"><i class="fa fa-comment"></i> Comment</a>
+        <a class="btn btn-sm" style="color: #2e3531; background-color: #d6a09c;" href="{% url 'comment_add' post.pk %}" class="card-link"><i class="fa fa-comment"></i> Comment</a>
         {% else %}
-        <a href="{% url 'comment_add' post.pk %}" class="card-link"><i class="fa fa-comment"></i> Comment</a>
+        <a class="btn btn-sm" style="color: #2e3531; background-color: #d6a09c;" href="{% url 'comment_add' post.pk %}" class="card-link"><i class="fa fa-comment"></i> Comment</a>
        
         {% endif %}
     {% else %}

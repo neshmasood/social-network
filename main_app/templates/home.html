@@ -1,44 +1,147 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load bootstrap_icons %}
+
 {% block title %}Home{% endblock %}
 
 {% block content%}
 
-<div class="container">
-    <h5>Welcome to the app </h5>
-    
-</div>
-
-<div class="card-fade-in w-100 ">
-    <div class="card-body">
-      <h5 class="card-title">Immigrants and Refuges</h5>
-      <p class="card-text">Many immigrants have fled their homes and are in need of our support while adjusting to their new home. Please, consider donating and supporting in any way possible. We are here to provide assistance to new families setting up and finding a job. We are looking for volunteers who can help. Please, join us by signing up. </p>
-      <!-- <a href="#" class="btn btn-primary">Button</a> -->
-    </div>
-  </div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+        <!-- Masthead-->
+  <header class="masthead">
+          <!-- Background image -->
+      <div class="p-5 text-center bg-image" style="background-image: url('https://cdn.create.vista.com/api/media/medium/461213834/stock-photo-abstract-geometric-background-poly-pattern?token='); height: 400px;">
+        <div class="mask">
+          <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="text-white">
+              <br/><br/><br/>
+              <h1 class="mb-3">Safe platform for Immigrants and Refugees!</h1>
+              <a class="btn btn-outline-light btn-lg" href="#!" role="button">Sign up</a>
             </div>
           </div>
         </div>
-        <div class="col-sm-6">
-          <div class="card">
+      </div>
+<!-- Background image -->
+      </header>
+      <!-- Icons Grid-->
+      <section class="features-icons bg-light text-center">
+          <div class="container mt-5">
+              <div class="row">
+                  <div class="col-lg-4">
+                      <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                          <h3>Donate <i class="bi bi-cash-coin bi-7x"></i></h3>
+                          <p class="lead mb-0">No amount is small!</p>
+                      </div>
+                  </div>
+                  <div class="col-lg-4">
+                      <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                          <h3>Volunteer <i class="bi bi-person-circle"></i></h3>
+                          <p class="lead mb-0">Many ways you can help!</p>
+                      </div>
+                  </div>
+                  <div class="col-lg-4">
+                      <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+                          <h3>Support System <i class="bi bi-file-earmark-post"></i></h3>
+                          <p class="lead mb-0">Post and spread the news if there are any jobs opening, fundraising, .</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+<section>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-3">
+          <div class="card-fade-in">
             <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
+              <h5 class="card-title">Volunteer</h5>
+              <p class="card-text">Are you looking for volunteer work? We are always looking for people to assist with events. See the posts by our members and reach out!</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card-fade-in">
+            <div class="card-body">
+              <h5 class="card-title">See what others are saying</h5>
+              <p class="card-text">Read posts by our volunteers, group members and others who are assisting immigrants and see what they have to say! We .</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card-fade-in">
+            <div class="card-body">
+              <h5 class="card-title">Donations</h5>
+              <p class="card-text">We are looking for donations for different charities and local institutions who have setup donation programs to assist immigrants and refugees. You can find more information on our donation page.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card-fade-in">
+            <div class="card-body">
+              <h5 class="card-title">See what others are saying</h5>
               <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
           </div>
         </div>
       </div>
 
 </div>
+</section>
+<section>
+
+  <div class="container mt-5">
+      <div class="row">
+          <div class="col-sm-3">
+            <div class="card-fade-in">
+              <div class="card-body">
+          
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="card-fade-in">
+              <div class="card-body">
+              
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="card-fade-in">
+              <div class="card-body">
+              
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="card-fade-in">
+              <div class="card-body">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+  
+  </div>
+  </section>
+    <!-- Footer-->
+    <footer class="footer bg-light">
+      <div class="container mt-5">
+          <div class="row">
+              <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                  <ul class="list-inline mb-2">
+                      <li class="list-inline-item"><a href="#!">About</a></li>
+                      <li class="list-inline-item">⋅</li>
+                      <li class="list-inline-item"><a href="#!">Contact</a></li>
+                      <li class="list-inline-item">⋅</li>
+                      <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
+                      <li class="list-inline-item">⋅</li>
+                      <li class="list-inline-item"><a href="#!">Privacy Policy</a></li>
+                  </ul>
+              </div>
+             
+          </div>
+      </div>
+  </footer>
 
 
     
