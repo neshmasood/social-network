@@ -102,7 +102,7 @@ INSTALLED_APPS = [
     'bootstrap_modal_forms',
     'bootstrap',
     'fontawesome',
-    
+    'social.apps.django_app.default',
     
 ]
 
