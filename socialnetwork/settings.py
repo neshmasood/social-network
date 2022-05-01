@@ -233,6 +233,6 @@ STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
 # if you have an application deployed, you should specify the path of the dot env on the settings file like so:
 
 # import os
-# from dotenv import load_dotenv
-# dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
-# load_dotenv(dotenv_path)
+from dotenv import load_dotenv
+dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+load_dotenv(dotenv_path)
