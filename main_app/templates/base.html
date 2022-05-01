@@ -40,6 +40,9 @@
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- <a class="navbar-brand" href="#">
+                    <img src="https://us.123rf.com/450wm/marsono/marsono2104/marsono210401057/167760538-hope-hand-logo-vector-image.jpg?ver=6" width="50" height="50" alt="">
+                  </a> -->
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0" > 
                     <li class="nav-item">
                         <a class="nav-link" href="/admin">Admin</a> 
@@ -62,7 +65,7 @@
                     </li> -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        {{user.first_name}}'s Profile
+                        {{user.first_name}}'s profile
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <li><a class="dropdown-item" href="{% url 'update_profile' user.pk %}">Edit Profile</a></li>

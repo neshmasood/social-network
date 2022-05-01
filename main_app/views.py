@@ -136,14 +136,26 @@ class DeletePostView(DeleteView):
     # success_url = reverse_lazy('/posts')
     success_url = "/posts"
     
-    
-    
+
+
 class AddCommentView(CreateView):
     model = Comment
-    # fields = ['name', 'body']
+    fields = ['author', 'body']
     # fields = '__all__'
-    form_class = CommentForm
+    # form_class = CommentForm
     template_name = "comment_add.html"
+    
+    def form_valid(self, form):
+        form.instance.post_id = self.kwargs['pk']
+        return super().form_valid(form)
+    success_url = '/posts'
+
+# class AddCommentView(CreateView):
+#     model = Comment
+#     fields = ['author', 'body']
+#     # fields = '__all__'
+#     # form_class = CommentForm
+#     template_name = "comment_add.html"
     
     
     # def form_valid(self, form):
@@ -152,14 +164,40 @@ class AddCommentView(CreateView):
     #     self.object.save()
     #     return HttpResponseRedirect('/posts')
     
-    def form_valid(self, form):
-        form.instance.post_id = self.kwargs['pk']
-        # form.instance.user = self.request.user
-        self.object.user = self.request.user
-        self.object.save()
+    # def form_valid(self, form):
+    #     self.object = form.save(commit=False)
+    #     form.instance.post_id = self.kwargs['pk']
+    #     # form.instance.user = self.request.user
+    #     self.object.user = self.request.user
+    #     self.object.save()
         
-        return super().form_valid(form)
-    success_url = '/posts'
+    #     return super().form_valid(form)
+    # success_url = '/posts'
+    
+      
+    
+# class AddCommentView(CreateView):
+#     model = Comment
+#     # fields = ['name', 'body']
+#     # fields = '__all__'
+#     form_class = CommentForm
+#     template_name = "comment_add.html"
+    
+    
+#     # def form_valid(self, form):
+#     #     self.object = form.save(commit=False)
+#     #     self.object.user = self.request.user
+#     #     self.object.save()
+#     #     return HttpResponseRedirect('/posts')
+    
+#     def form_valid(self, form):
+#         form.instance.post_id = self.kwargs['pk']
+#         # form.instance.user = self.request.user
+#         self.object.user = self.request.user
+#         self.object.save()
+        
+#         return super().form_valid(form)
+#     success_url = '/posts'
     
     
     
