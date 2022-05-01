@@ -18,8 +18,8 @@
     <div class="card-header" style="color: #6E7D75; background-color: #eaeff0;">
         <h6>Title: {{post.title}} </h6>
         <div class="text-right">
-            <a class="btn btn-secondary btn-sm" href="{% url 'post_update' post.pk %}">Edit</a>
-            <a class="btn btn-secondary btn-sm" href="{% url 'post_delete' post.pk %}">Delete</a>
+            <a class="btn btn-sm" style="background-color: #BECBCF;" href="{% url 'post_update' post.pk %}">Edit</a>
+            <a class="btn btn-sm" style="background-color: #BECBCF;" href="{% url 'post_delete' post.pk %}">Delete</a>
         </div>
     </div>
     <div class="card-body">

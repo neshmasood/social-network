@@ -16,72 +16,113 @@
     </blockquote>
   </div>
 </div>
-
 <div class="container">
   <div class="row " style="margin: 5rem;">
     <div class="col-sm-6">
-      <div class="card border-info mb-3">
-        <div class="card-body text-secondary">
-          <h5 class="card-text">“Our attitude towards immigration reflects our faith in the American ideal. We have always believed it possible for men and women who start at the bottom to rise as far as the talent and energy allow. Neither race nor place of birth should affect their chances.”</h5>
-          <p class="card-text">Senator Robert F. Kennedy</p>
-          <!-- <a href="#" class="btn btn-primary"></a> -->
+      <div class="card mt-5" style="width: 18rem;">
+        <img class="card-img-top" src="https://images.squarespace-cdn.com/content/v1/606f50f92d6acd16ff3c5efb/1617908089419-DLJX3FQMWMR5GVCD5DXD/MRC-CMYK.png?format=1500w" alt="Card image cap">
+        <div class="card-body">
+          <a href="https://www.mrcaustin.org">Find more details about this charity here</a>
+        </div>
+        <ul class="list-group list-group-flush">
+          <strong><li class="list-group-item">Amount</li></strong>
+          <button class="btn btn-sm" style="background-color: #d4e0e3;">$10</button>
+          <strong><li class="list-group-item">Frequency</li></strong>
+          <button class="btn btn-sm" style="background-color: #d4e0e3;">One Time</button></ul>
+        </ul>
+        <div class="card-body">
+          <form action="{% url 'success' %}" method="POST">
+            {% csrf_token %}
+   
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="{{ key }}"
+                data-description = "A donation payment"
+                data-amount="1000"
+                currency = 'usd'>
+            </script>
+          </form>
+         
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="card mt-5" style="width: 18rem;">
+        <img class="card-img-top" src="https://www.edseed.me/wp-content/uploads/2020/11/edseed_logo_black.png" alt="Card image cap">
+        <div class="card-body">
+          <a href="https://www.edseed.mea">Find more details about this charity here</a>
+        </div>
+        <ul class="list-group list-group-flush">
+          <strong><li class="list-group-item">Amount</li></strong>
+          <button class="btn btn-sm" style="background-color: #d4e0e3;">$50</button>
+          <strong><li class="list-group-item">Frequency</li></strong>
+          <button class="btn btn-sm" style="background-color: #d4e0e3;">One Time</button></ul>
+        </ul>
+        <div class="card-body">
+          <form action="{% url 'success' %}" method="POST">
+            {% csrf_token %}
+       
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="{{ key }}"
+                data-description = "A donation payment"
+                data-amount="5000"
+                currency = 'usd'>
+            </script>
+          </form>
+         
         </div>
       </div>
     </div>
     <div class="col-sm-6">
-      <div class="card border-info mb-3">
+      <div class="card mt-5" style="width: 18rem;">
+        <img class="card-img-top" src="https://parentsforukraine.org/images/2022/03/18/logo_parents_for_ua.png" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title">Please consider donating to help a family in need.</h5>
-          <p class="card-text">Every dollar counts.</p>
-            <form action="{% url 'success' %}" method="POST">
-              {% csrf_token %}
-            <!-- <button type="submit" id="checkout-button">Checkout</button> -->
-              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                  data-key="{{ key }}"
-                  data-description = "A donation payment"
-                  data-amount="1000"
-                  currency = 'usd'>
-              </script>
-            </form>
-          <!-- <a href="#" class="btn btn-primary"></a> -->
+          <a href="https://parentsforukraine.org">Find more details about this charity here</a>
+        </div>
+        <ul class="list-group list-group-flush">
+          <strong><li class="list-group-item">Amount</li></strong>
+          <button class="btn btn-sm" style="background-color: #d4e0e3;">$20</button>
+          <strong><li class="list-group-item">Frequency</li></strong>
+          <button class="btn btn-sm" style="background-color: #d4e0e3;">One Time</button></ul>
+        </ul>
+        <div class="card-body">
+          <form action="{% url 'success' %}" method="POST">
+            {% csrf_token %}
+     
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="{{ key }}"
+                data-description = "A donation payment"
+                data-amount="2000"
+                currency = 'usd'>
+            </script>
+          </form>
+         
         </div>
       </div>
     </div>
     <div class="col-sm-6">
-      <div class="card border-info mb-3">
+      <div class="card mt-5" style="width: 18rem;">
+        <img class="card-img-top" src="https://internationalbudget.org/wp-content/uploads/UNICEF-logo.jpg" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title">Please consider donating to help a family in need.</h5>
-          <p class="card-text">Every dollar counts.</p>
-            <form action="{% url 'success' %}" method="POST">
-              {% csrf_token %}
-            <!-- <button type="submit" id="checkout-button">Checkout</button> -->
-              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                  data-key="{{ key }}"
-                  data-description = "A donation payment"
-                  data-amount="5000"
-                  currency = 'usd'>
-              </script>
-            </form>
-          <!-- <a href="#" class="btn btn-primary"></a> -->
+          <a href="https://www.unicefusa.org">Find more details about this charity here</a>
         </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card border-info mb-3">
+        <ul class="list-group list-group-flush">
+          <strong><li class="list-group-item">Amount</li></strong>
+          <button class="btn btn-sm" style="background-color: #d4e0e3;">$100</button>
+          <strong><li class="list-group-item">Frequency</li></strong>
+          <button class="btn btn-sm" style="background-color: #d4e0e3;">One Time</button></ul>
+        </ul>
         <div class="card-body">
-          <h5 class="card-title">Please consider donating to help a family in need.</h5>
-          <p class="card-text">Every dollar counts.</p>
-            <form action="{% url 'success' %}" method="POST">
-              {% csrf_token %}
-            <!-- <button type="submit" id="checkout-button">Checkout</button> -->
-              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                  data-key="{{ key }}"
-                  data-description = "A donation payment"
-                  data-amount="10000"
-                  currency = 'usd'>
-              </script>
-            </form>
-          <!-- <a href="#" class="btn btn-primary"></a> -->
+          <form action="{% url 'success' %}" method="POST">
+            {% csrf_token %}
+        
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="{{ key }}"
+                data-description = "A donation payment"
+                data-amount="10000"
+                currency = 'usd'>
+            </script>
+          </form>
         </div>
       </div>
     </div>
@@ -89,42 +130,7 @@
 </div>
 
 
-
 {% endblock %}
 
 
-
-
-
-
-
-<!-- <div class="container">
-  <form action="{% url 'success' %}" method="POST">
-    {% csrf_token %}
-    <button type="submit" id="checkout-button">Checkout</button> --> 
-    <!-- <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-        data-key="{{ key }}"
-        data-description = "A donation payment"
-        data-amount="1000"
-        currency = 'usd'>
-    </script>
-</form>
-
-</div> --> 
-
-
-
-    <!-- <div class="container">
-      <div class="product">
-        <img src="" alt="" />
-        <div class="description">
-          <h3>Please, donate here</h3>
-          <h5>$20.00</h5>
-        </div>
-      </div>
-      <form action="/create-checkout-session" method="POST">
-        <button id="checkout-button" type="submit" >Checkout</button>
-      </form>
-    </div>
-  -->
 
