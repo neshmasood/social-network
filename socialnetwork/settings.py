@@ -11,9 +11,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-
-from dotenv import load_dotenv
 import os
+from dotenv import load_dotenv
+
 
 load_dotenv()
 
@@ -67,7 +67,7 @@ INSTALLED_APPS = [
     'payments',
     # 'members',
     'django_bootstrap_icons',
-    'bootstrap_modal_forms',
+    # 'bootstrap_modal_forms',
     'bootstrap',
     'fontawesome',
     
