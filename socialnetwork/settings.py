@@ -11,40 +11,11 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-
 import os
-import socket
-import psycopg2
-import dj_database_url
-
-DATABASE_URL = os.environ['DATABASE_URL']
-conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+from dotenv import load_dotenv
 
 
-# from dotenv import load_dotenv
-
-
-# load_dotenv()
-
-
-
-# If the host name starts with 'live', DJANGO_HOST = "production"
-if socket.gethostname().startswith('live'):
-    DJANGO_HOST = "production"
-# Else if host name starts with 'test', set DJANGO_HOST = "test"
-elif socket.gethostname().startswith('test'): 
-    DJANGO_HOST = "testing"
-else:
-# If host doesn't match, assume it's a development server, set DJANGO_HOST = "development"
-    DJANGO_HOST = "development"
-# Define general behavior variables for DJANGO_HOST and all others
-if DJANGO_HOST == "production":
-    DEBUG = False
-    STATIC_URL = 'https://infinite-ravine-34596.herokuapp.com/'
-else:
-    DEBUG = True
-    STATIC_URL = '/static/'
-    
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -65,12 +36,9 @@ STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
+DEBUG = True
 
-ALLOWED_HOSTS = [
-    'supportresources.herokuapp.com'
-]
-
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -99,16 +67,15 @@ INSTALLED_APPS = [
     'payments',
     # 'members',
     'django_bootstrap_icons',
-    'bootstrap_modal_forms',
+    # 'bootstrap_modal_forms',
     'bootstrap',
     'fontawesome',
-    'social.apps.django_app.default',
+    
     
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -122,7 +89,7 @@ ROOT_URLCONF = 'socialnetwork.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/www/STORE/main_app/templates/'],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -147,8 +114,6 @@ DATABASES = {
         'NAME': 'socialnetwork',
     }
 }
-
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 
 # Password validation
@@ -185,11 +150,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-# STATIC_URL = 'static/'
+STATIC_URL = 'static/'
 # STATICFILES_DIRS = [BASE_DIR / 'static']
-
-PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] 
 
