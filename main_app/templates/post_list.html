@@ -6,8 +6,8 @@
 
 
 <div class="container text-center mt-5" style="color: #283d32;"> 
-    <div class="card-fade-in">
-        <h5>Posts my members of this website. Please, be kind and respectful to others.</h5>
+    <div class="card-fade-in "  style="color: #5e987a;">
+        <h5>Posts by members of this website.</h5>
 
     </div> 
 
@@ -22,7 +22,7 @@
 
 <div class="card w-50 justify-content-center  mx-auto mt-5" style="width: 18rem;">
   <div class="card-header" style="color: #6E7D75; background-color: #eaeff0;" >
-    {{post.author}} -
+    {{post.author.first_name}} -
     posted on: {{post.post_date}}
   </div>
   <div class="card-body">

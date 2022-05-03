@@ -13,6 +13,7 @@
                                 
                             </div>
                             {% if user.is_authenticated %}
+                            
                             <div class="ml-2">
                                 <div class="h5 m-0">
                                    <p>Logged in as: {{user.first_name}} {{user.last_name}}</p> 
@@ -36,10 +37,10 @@
                 </div>
             </div>
 
-
+           
     {% else %}
     
-    You have login before posting anything here.
+    You have to login before posting anything here.
             
     {% endif %}
 {% endblock %}
