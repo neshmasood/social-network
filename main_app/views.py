@@ -14,6 +14,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 # from django.contrib.auth import get_user_model
 # from django.views import generic 
+from django.contrib import messages
 
 
 # Create your views here.
@@ -66,6 +67,9 @@ def signup_view(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
+            # user = form.save()
+            # login(request, user)
+            
             return redirect('/login/')
     else:
         form = SignUpForm()
@@ -111,17 +115,25 @@ class PostList(TemplateView):
 
 #CRUD on Post
 
-class PostCreate(LoginRequiredMixin, CreateView):
+class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     # form_class = PostForm
-    fields = ['title', 'author', 'body']
+    fields = ['title', 'body']
     #take out image from post form
     template_name = "post_create.html"
     success_url = '/posts'
+    
+    def get_success_url(self):
+        messages.success(
+            self.request, 'Your post has been created successfully.')
+        return reverse_lazy("/posts")
+    
+    
     def form_valid(self, form):
         self.object = form.save(commit=False)
-        self.object.user = self.request.user
+        self.object.author = self.request.user
         self.object.save()
+        # return super().form_valid(form)
         return HttpResponseRedirect('/posts')
     
 
@@ -130,6 +142,13 @@ class UpdatePostView(UpdateView):
     form_class = EditForm
     template_name = 'post_update.html'
     success_url = "/posts"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        update = True
+        context['update'] = update
+
+        return context
 
     
 class DeletePostView(DeleteView):
@@ -138,6 +157,11 @@ class DeletePostView(DeleteView):
     # success_url = reverse_lazy('/posts')
     success_url = "/posts"
     
+
+class DeleteCommentView(DeleteView):
+    model = Comment
+    template_name = "comment_delete.html"
+    success_url = "/posts"
 
 
 class AddCommentView(CreateView):
@@ -149,8 +173,16 @@ class AddCommentView(CreateView):
     
     def form_valid(self, form):
         form.instance.post_id = self.kwargs['pk']
+        # form.instance.user = self.user.author
         return super().form_valid(form)
     success_url = '/posts'
+    
+    # def form_valid(self, form):
+    #     self.object = form.save(commit=False)
+    #     self.object.author = self.request.user
+    #     self.object.save()
+    #     return HttpResponseRedirect('/posts')
+    
 
 # class AddCommentView(CreateView):
 #     model = Comment

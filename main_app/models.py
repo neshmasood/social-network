@@ -16,6 +16,10 @@ class Post (models.Model):
     likes = models.ManyToManyField(User, related_name='posts')
     
     
+    class Meta: 
+            ordering = ('-post_date',) 
+    
+    
     def total_likes(self):
         return self.likes.count()
     
@@ -29,6 +33,7 @@ class Post (models.Model):
 class Comment(models.Model):
         post = models.ForeignKey(Post, blank=True, related_name="comments", on_delete=models.CASCADE)
         # name = models.CharField(max_length=255)
+        # author = models.ForeignKey(User, editable=False, on_delete=models.CASCADE)
         author = models.ForeignKey(User, on_delete = models.CASCADE)
         body = models.TextField()
         date_added = models.DateTimeField(auto_now_add=True)
@@ -36,6 +41,10 @@ class Comment(models.Model):
         
         class Meta: 
             ordering = ('-date_added',) 
+        
+        
+        # def __str__(self):
+        #     return 'Comment by {}'.format(self.body)
         
         def __str__(self):
             return '%s  - %s' % (self.post.title, self.author)

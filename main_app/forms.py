@@ -34,12 +34,12 @@ class UserChangeForm(UserCreationForm):
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title', 'author', 'body')
+        fields = ('title', 'body')
         
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             # 'image': forms.ImageField(attrs={'class': 'form-control'}),
-            'author': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id': 'user', 'type': 'hidden'}), 
+            # 'author': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id': 'user', 'type': 'hidden'}), 
             'body': forms.Textarea(attrs={'class': 'form-control'}),  
             
         }

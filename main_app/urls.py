@@ -1,7 +1,7 @@
 from django.urls import path
 # from django.contrib import admin
 from . import views 
-from .views import PostDetailView, DeletePostView, UpdatePostView, AddCommentView, LikeView, UpdateProfileView
+from .views import PostDetailView, DeletePostView, UpdatePostView, PostCreateView, AddCommentView, LikeView, UpdateProfileView
 from payments.views import DonationPageView
 from main_app.views import dashboard
 
@@ -12,12 +12,13 @@ urlpatterns = [
     path('signup/', views.signup_view, name='signup'),
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
-    path('posts/new/', views.PostCreate.as_view(), name="post_create"),
+    path('posts/new/', PostCreateView.as_view(), name="post_create"),
     path('posts/<int:pk>', PostDetailView.as_view(), name="post_detail"),
     path('posts/', views.PostList.as_view(), name="post_list"),
     path('posts/<int:pk>/delete', DeletePostView.as_view(), name="post_delete"),
-    path('posts/<int:pk>/update', UpdatePostView.as_view(), name="post_update"),
+    path('posts/<int:pk>/update', views.UpdatePostView.as_view(), name="post_update"),
     path('post/<int:pk>/comment/', AddCommentView.as_view(), name="comment_add"),
+    #  path('comment/new', AddCommentView.as_view(), name="comment_add"),
     path('like/<int:pk>', LikeView, name="like_post"),
    
     # path('create-checkout-session/<pk>/', CreateCheckoutSessionView.as_view(), name='create-checkout-session'),
