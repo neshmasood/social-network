@@ -20,6 +20,8 @@ load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+STATIC_ROOT = BASE_DIR / 'static'
+
 YOUR_DOMAIN = "http://localhost:8000" 
 
 
@@ -36,7 +38,7 @@ STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -198,3 +200,7 @@ STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
 # from dotenv import load_dotenv
 # dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
 # load_dotenv(dotenv_path)
+
+
+import django_heroku 
+django_heroku.settings(locals())
