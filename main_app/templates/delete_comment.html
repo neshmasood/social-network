@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Delete Comment{% endblock %}
+{% block content %}
+
+<div class="container text-center mx-auto mt-5">
+
+<div class="card-fade-in ">
+    <div class="card-header ">
+        <h4>Delete this comment?</h4>
+        <p>Are you sure you want to delete "{{comment.body}}"? This can't be undone.</p>
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="mr-2">
+                    
+                </div>
+                {% if user.is_authenticated %}
+                    {% if user.id == post.comment.author.id %}
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="form-group">
+            <form method="post">
+                {% csrf_token %}
+                <button class="btn" style="background-color: #CE7870;">Yes</button>
+                <a class="btn btn-secondary" href="{% url 'post_detail' post.pk %}">Cancel</a>
+            </form>
+                {% else%}
+                    You're not allowed here.
+                {% endif %}
+        
+                {% else %}
+        
+                    You're not allowed here.
+        
+            {% endif %}
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}

@@ -1,7 +1,7 @@
 from django.urls import path
 # from django.contrib import admin
 from . import views 
-from .views import PostDetailView, DeletePostView, UpdatePostView, PostCreateView, AddCommentView, LikeView, UpdateProfileView
+from .views import PostDetailView, DeletePostView, UpdatePostView, PostCreateView, AddCommentView, LikeView, UpdateProfileView, DeleteCommentView
 from payments.views import DonationPageView
 from main_app.views import dashboard
 
@@ -18,6 +18,7 @@ urlpatterns = [
     path('posts/<int:pk>/delete', DeletePostView.as_view(), name="post_delete"),
     path('posts/<int:pk>/update', views.UpdatePostView.as_view(), name="post_update"),
     path('post/<int:pk>/comment/', AddCommentView.as_view(), name="comment_add"),
+    path('comments/<int:pk>/delete/', views.DeleteCommentView.as_view(), name="comment_delete"),
     #  path('comment/new', AddCommentView.as_view(), name="comment_add"),
     path('like/<int:pk>', LikeView, name="like_post"),
    

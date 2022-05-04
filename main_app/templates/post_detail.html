@@ -46,6 +46,8 @@
                 <br/><br/>
                 {{ comment.body }}
                 <br/><br/>
+<!-- 
+                <a class="btn btn-sm" style="background-color: #BECBCF;" href="{% url 'comment_delete' post.pk %}">Delete</a> -->
             
             {% endfor %}    
      
@@ -73,6 +75,7 @@
         <a class="btn btn-sm" style="color: #2e3531; background-color: #d6a09c;" href="{% url 'comment_add' post.pk %}" class="card-link"><i class="fa fa-comment"></i> Comment</a>
         {% else %}
         <a class="btn btn-sm" style="color: #2e3531; background-color: #d6a09c;" href="{% url 'comment_add' post.pk %}" class="card-link"><i class="fa fa-comment"></i> Comment</a>
+
        
         {% endif %}
     {% else %}

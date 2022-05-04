@@ -158,10 +158,20 @@ class DeletePostView(DeleteView):
     success_url = "/posts"
     
 
+
+#Comment CRUD
 class DeleteCommentView(DeleteView):
     model = Comment
+    fields = ['author', 'body',]
     template_name = "comment_delete.html"
     success_url = "/posts"
+    
+    
+class UpdateCommentView(UpdateView):
+    model = Comment
+    fields = ['author', 'body',]
+    template_name = "comment_update.html"
+    success_url = '/posts'
 
 
 class AddCommentView(CreateView):
