@@ -10,9 +10,19 @@ django-cors-headers = "*"
 dj-database-url = "*"
 psycopg2 = "*"
 whitenoise = "*"
+<<<<<<< HEAD
 fontawesome = "*"
 fontawesome-free = "*"
 django-fontawesome-5 = "*"
+=======
+social-auth-app-django = "*"
+django-bootstrap-icons = "*"
+django-bootstrap-v5 = "*"
+django-fontawesome-5 = "*"
+django-allauth = "*"
+django-bootstrap = "*"
+django-fontawesome = "*"
+>>>>>>> ef45932bfa185b9a0aba2925f4a3719557477f60
 
 [dev-packages]
 
