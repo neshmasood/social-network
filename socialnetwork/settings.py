@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+    
     'social_django',
     # 'django_extentions',
     
@@ -69,7 +70,9 @@ INSTALLED_APPS = [
     'django_bootstrap_icons',
     # 'bootstrap_modal_forms',
     'bootstrap',
-    'fontawesome',
+    # 'fontawesome',
+    'fontawesome_5',
+    'bootstrapform',
     
     
 ]
@@ -89,7 +92,7 @@ ROOT_URLCONF = 'socialnetwork.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
